@@ -1,0 +1,138 @@
+package javaFX;
+
+import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.Slider;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
+public class menu2 extends Application {
+
+	public void start(Stage ps) {
+	
+		Menu mfile = new Menu("File");
+		Menu medit = new Menu("View");
+		Menu window = new Menu("Window");
+		
+		MenuBar mb = new MenuBar(mfile,medit,window);
+		
+		MenuItem item1 = new MenuItem("New");
+		MenuItem item2 = new MenuItem("Open File...");
+		Menu recentFile = new Menu("Edit");
+		
+		MenuItem item3 = new MenuItem("Undo");
+		MenuItem item4 = new MenuItem("redo");
+		SeparatorMenuItem sp = new SeparatorMenuItem();
+		
+		mfile.getItems().addAll(item1,sp,item2,recentFile);
+		recentFile.getItems().addAll(item3,item4);
+		 
+		 
+		//****************************************************************************
+		 Rectangle rc1 = new Rectangle(10,20,100,150);  
+	   	 Ellipse e1 = new Ellipse(100,70,100,60);
+	   	e1.setFill(Color.BLUE);
+		e1.setStroke(Color.BLACK);
+		e1.setStrokeWidth(5);
+		
+	   	 VBox sh = new VBox(rc1,e1);
+			
+			
+		 
+		 //****************************************************************************
+		 	Label l1 =new Label("user");
+			Label l2 =new Label("pass");
+			
+			TextField usertext= new  TextField();
+			PasswordField pass= new PasswordField(); 
+			Button b1= new Button("login");
+			
+			VBox vb = new VBox(l1,usertext,l2,pass,b1 );
+
+		
+		//****************************************************************************
+				Label label = new Label ("Plese chose one of this:");
+				RadioButton sec1 = new RadioButton("sec1");
+				RadioButton sec2 = new RadioButton("sec2");
+				RadioButton sec3 = new RadioButton("sec3");
+				
+				ToggleGroup tg = new ToggleGroup();
+				sec1.setToggleGroup(tg);
+				sec2.setToggleGroup(tg);
+				sec3.setToggleGroup(tg);
+				sec1.setSelected(true);
+				
+			
+				Label label2 = new Label ("Plese chose one or more of this:");
+				CheckBox chb1 =new CheckBox("Java");
+				CheckBox chb2 =new CheckBox("DB");
+				CheckBox chb3 =new CheckBox("soft");
+				
+				Slider slide1 = new Slider(0,200,70);
+				slide1.setShowTickLabels(true); 
+				slide1.setShowTickMarks(true); 
+				slide1.setMajorTickUnit(20); 
+				TextArea tx = new TextArea();
+				tx.setPrefWidth(200);
+				tx.setPrefHeight(100);
+				tx.scrollLeftProperty(); 
+				tx.scrollTopProperty();
+				 tx.setWrapText(true);
+				 tx.setLayoutY(210); 
+				VBox vb3 = new VBox(label , sec1,sec2 ,sec3 ,label2 , chb1, chb2, chb3,slide1,tx );
+			
+		//****************************************************************************
+				
+				
+		 TabPane tp = new TabPane();
+		 Tab tab1 = new Tab("Log In",vb);
+		 Tab tab2 = new Tab("Shapes",sh);
+		 Tab tab3 = new Tab("Rate",vb3 );
+		 Tab tab4 = new Tab("Imge" );
+		 Tab game = new Tab("Game");
+		 tp.getTabs().addAll(tab1,tab2,tab3,tab4,game); 
+		 
+		
+		 
+		 
+		 VBox vb2 = new VBox(mb,tp);
+
+
+			
+			Pane p2 =new Pane(vb2);
+			Scene sc2 = new Scene(p2,400,400);
+			Stage st2= new Stage();
+			st2.setScene(sc2);
+			st2.setX(300);
+			st2.setY(300);
+			st2.show();
+
+
+	}
+	public static void main(String[] args) {
+		Application.launch(args);
+
+	}
+
+}
