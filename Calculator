@@ -1,0 +1,62 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class calculator {
+
+	public static void main(String[] args) {
+		Scanner clt = new Scanner(System.in);
+		Scanner opt = new Scanner(System.in);
+		// TODO  we need var to holde the first num 
+		// TODO  we need var to holde the second num 
+		// TODO  we need var to holde the answer num 
+
+		double fnum, snum , answer;
+		int  operator  ;
+	
+		// TODO a way to enter a num and store in in fnum:
+		try 
+		{ 
+			while (true)
+			{
+				System.out.print("Enter first num:");
+				fnum = clt.nextDouble(); // each data type need its own method
+				System.out.print("Enter second num:");
+				snum = clt.nextDouble();
+					/*
+					answer = fnum+ snum ;
+					System.out.println("Tne answer is:" + answer);
+					System.out.println("\n");
+					*/
+				System.out.println("Chose the needed operator5 (1)ADD  (2)Sub    (3)Multi    (4)Divide");
+				operator = opt.nextInt();
+				
+				double result = 0;
+					switch (operator)
+					{
+						case 1: result = fnum + snum ;
+						break; //so the control flow will not go to other statment
+						case 2: result = fnum - snum ;
+						break;
+						case 3: result = fnum * snum ;
+						break;
+						case 4: result = fnum / snum ;
+						break;
+						
+						default : System.out.println("Entered num is not valid");
+					}
+				System.out.println("Tne answer is:" + result );
+				System.out.println("\n");
+				
+			}
+			
+		}catch (InputMismatchException e)
+		{
+			System.out.println("Input Mismatch catch block");
+		}
+		
+		
+		
+		
+	}
+
+}
