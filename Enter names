@@ -1,0 +1,92 @@
+import java.util.InputMismatchException;
+	import java.util.Scanner;
+
+public class MyExample {
+	
+
+		public static void main(String[] args) {
+			// TODO user fill array and chose to display the content of spsefic index 
+			// problem : no use of the catch  statments
+			String[] c = new String[5];
+			String a,b,d,f,m ;
+			int n1;
+			System.out.println("The length of the array is: "+c.length);
+			
+			Scanner myinput = new Scanner(System.in);
+			
+			
+			try {
+				
+				System.out.println("enter 5 names");
+				a = myinput.next();
+				b = myinput.next();
+				d = myinput.next();
+				f = myinput.next();
+				m = myinput.next();
+				
+				c[0]=a;
+				c[1]=b;
+				c[2]=d;
+				c[3]=f;
+				c[4]=m;
+				
+				while (true)
+					{
+					System.out.println("Do you want see all the content? (y) for yes (n) for no (e) for end the program ");
+					Scanner scanner = new Scanner(System.in) ;
+					String input =scanner.next();
+					
+					switch (input)
+						{
+						case "y":
+							for(int i=0 ; i<c.length ; i++)
+							{
+								System.out.println("the value of index " + i + "=" + c[i]);
+							}
+							
+							
+						break;	
+						case "n":
+							System.out.println("what index you want to see? enter number from 0-4");
+							n1 = myinput.nextInt();
+							System.out.println("the value of index "+ n1  + " is :" + c[n1]);
+							
+								
+						break;	
+						case "e": System.exit(0);
+						
+						break;
+						default: System.out.println("wrong input");
+						}
+					}
+				
+				}
+			catch (InputMismatchException e )
+				{
+				System.out.println("plese enter digit munber");
+				//e.printStackTrace();
+				System.out.println(e);
+				
+				}
+			catch (ArithmeticException e)
+				{
+				System.out.println("plese do not enter zero ");
+				e.printStackTrace();
+				System.out.println(e);
+				}
+			catch (ArrayIndexOutOfBoundsException e)
+			{
+			System.out.println("plese enter a valid endex ");
+			e.printStackTrace();
+			System.out.println(e);
+			}
+			
+			finally {System.out.println("finally block");}
+				
+			System.out.println("end of program");
+			
+			
+
+		}
+		
+	}
